@@ -1,0 +1,33 @@
+image: circleci/elixir:1.10.3
+
+stages:
+  - test
+  - publish
+
+cache:
+  key:
+    files:
+      - mix.lock
+    prefix: "v1"
+  paths:
+    - deps
+
+before_script:
+  - mix local.rebar --force
+  - mix local.hex --force
+  - mix hex.organization auth ratio_pbc --key ${HEX_RATIO_READ_ONLY_KEY}
+  - mix deps.get
+
+test:
+  stage: test
+  script:
+    - mix test
+
+build:
+  only: 
+    - main
+  stage: publish
+  script:
+    - "echo \"0.1.${CI_PIPELINE_IID}\" > version"
+    - mix hex.config api_key ${RATIO_ORG_KEY}
+    - mix hex.publish --organization ratio_pbc --yes
