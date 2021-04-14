@@ -3,7 +3,7 @@ defmodule CommcareAPI.PatientCase do
 
   @type t :: %__MODULE__{
           case_id: String.t(),
-          child_cases: Map.t(),
+          child_cases: map(),
           city: String.t(),
           date_tested: Date.t() | nil,
           dob: Date.t() | nil,
