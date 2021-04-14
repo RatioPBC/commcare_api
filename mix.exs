@@ -38,7 +38,7 @@ defmodule CommcareAPI.MixProject do
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:hammox, "~> 0.2", only: [:test]},
       {:mix_audit, "~> 0.1", only: [:dev, :test], runtime: false},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+      {:ex_doc, ">= 0.24.0", only: :dev, runtime: false}
     ]
   end
 
