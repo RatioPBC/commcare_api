@@ -33,7 +33,7 @@ defmodule CommcareAPI.MixProject do
       {:jason, "~> 1.0"},
       {:floki, ">= 0.0.0"},
       {:httpoison, "~> 1.6"},
-      {:timex, "~> 3.5"},
+      {:timex, "~> 3.7"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:hammox, "~> 0.2", only: [:test]},
