@@ -1,4 +1,8 @@
 defmodule CommcareAPI.PatientCase do
+  @moduledoc """
+  A struct that represents a patient in CommCare.
+  """
+
   @derive Jason.Encoder
 
   @type t :: %__MODULE__{
