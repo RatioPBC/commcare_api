@@ -10,14 +10,22 @@ defmodule CommcareAPI.CommcareClient do
   alias Euclid.Extra.Random
 
   @impl CommcareAPI.CommcareClientBehaviour
-  @spec get_case(commcare_domain :: String.t(), case_id :: String.t(), config :: Config.t()) :: {:ok, map()} | {:error, error_reason()}
+  @spec get_case(
+          commcare_domain :: String.t(),
+          case_id :: String.t(),
+          config :: Config.t()
+        ) :: {:ok, map()} | {:error, error_reason()}
   def get_case(commcare_domain, case_id, config) do
     commcare_api_case_url(commcare_domain, case_id)
     |> config.http_client.get(headers(config))
     |> parse_response()
   end
 
-  @spec get_user(commcare_domain :: String.t(), user_id :: String.t(), config :: Config.t()) :: {:ok, any} | {:error, error_reason}
+  @spec get_user(
+          commcare_domain :: String.t(),
+          user_id :: String.t(),
+          config :: Config.t()
+        ) :: {:ok, any} | {:error, error_reason}
   def get_user(commcare_domain, user_id, config) do
     commcare_api_user_url(commcare_domain, user_id)
     |> config.http_client.get(headers(config))
