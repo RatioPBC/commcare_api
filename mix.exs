@@ -29,10 +29,7 @@ defmodule CommcareAPI.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      local_or_remote(:remote, :euclid,
-        version: "~> 0.1",
-        path: "../euclid"
-      ),
+      {:euclid, "~> 0.2"},
       {:jason, "~> 1.0"},
       {:floki, ">= 0.0.0"},
       {:httpoison, "~> 1.6"},
@@ -43,14 +40,6 @@ defmodule CommcareAPI.MixProject do
       {:mix_audit, "~> 0.1", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
-  end
-
-  defp local_or_remote(:local, package, options) do
-    {package, options |> Keyword.delete(:organization) |> Keyword.delete(:version)}
-  end
-
-  defp local_or_remote(:remote, package, options) do
-    {package, options |> Keyword.get(:version), options |> Keyword.delete(:path) |> Keyword.delete(:version)}
   end
 
   defp version do
