@@ -40,30 +40,28 @@ defmodule CommcareAPI.PatientCase do
 
   @spec new(patient_case_json :: map()) :: {:ok, t()} | {:error, binary()}
   def new(patient_case_json) do
-    try do
-      properties = patient_case_json["properties"]
+    properties = patient_case_json["properties"]
 
-      {:ok,
-       %__MODULE__{
-         case_id: patient_case_json["case_id"],
-         case_type: properties["case_type"],
-         city: properties["address_city"],
-         child_cases: patient_case_json["child_cases"],
-         date_tested: get_date_tested(patient_case_json),
-         dob: get_dob(patient_case_json),
-         domain: patient_case_json["domain"],
-         full_name: properties["full_name"],
-         first_name: properties["first_name"],
-         last_name: properties["last_name"],
-         owner_id: properties["owner_id"],
-         phone_home: properties["phone_home"],
-         state: properties["address_state"],
-         street: properties["address_street"],
-         zip_code: properties["address_zip"]
-       }}
-    rescue
-      _error -> {:error, "error getting one of the values from the commcare data"}
-    end
+    {:ok,
+     %__MODULE__{
+       case_id: patient_case_json["case_id"],
+       case_type: properties["case_type"],
+       city: properties["address_city"],
+       child_cases: patient_case_json["child_cases"],
+       date_tested: get_date_tested(patient_case_json),
+       dob: get_dob(patient_case_json),
+       domain: patient_case_json["domain"],
+       full_name: properties["full_name"],
+       first_name: properties["first_name"],
+       last_name: properties["last_name"],
+       owner_id: properties["owner_id"],
+       phone_home: properties["phone_home"],
+       state: properties["address_state"],
+       street: properties["address_street"],
+       zip_code: properties["address_zip"]
+     }}
+  rescue
+    _error -> {:error, "error getting one of the values from the commcare data"}
   end
 
   defp get_dob(patient_case_json) do
