@@ -7,6 +7,7 @@ defmodule CommcareAPI.MixProject do
       deps: deps(),
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
+      licenses: ["Apache-2.0"],
       package: [
         files: ["lib", "mix.exs", "README.md", "version"]
       ],
