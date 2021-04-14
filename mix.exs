@@ -1,4 +1,4 @@
-defmodule CommcareApi.MixProject do
+defmodule CommcareAPI.MixProject do
   use Mix.Project
 
   def project do
