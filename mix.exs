@@ -31,7 +31,7 @@ defmodule CommcareAPI.MixProject do
     [
       {:euclid, "~> 0.2"},
       {:jason, "~> 1.0"},
-      {:floki, ">= 0.0.0"},
+      {:floki, ">= 0.30.0"},
       {:httpoison, "~> 1.6"},
       {:timex, "~> 3.7"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
