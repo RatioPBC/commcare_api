@@ -37,7 +37,7 @@ defmodule CommcareAPI.FakeCommcare do
       "{\"my\": \"state\"}"
   """
   @spec get_json :: binary
-  def get_json() do
+  def get_json do
     Agent.get(__MODULE__, & &1) |> Jason.encode!()
   end
 

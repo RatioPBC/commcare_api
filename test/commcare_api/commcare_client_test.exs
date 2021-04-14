@@ -2,9 +2,7 @@ defmodule CommcareAPI.CommcareClientTest do
   use ExUnit.Case, async: false
   import Mox
 
-  alias CommcareAPI.PatientCase
-  alias CommcareAPI.CommcareClient
-  alias CommcareAPI.HTTPoisonMock
+  alias CommcareAPI.{CommcareClient, HTTPoisonMock, PatientCase}
 
   setup :set_mox_global
   setup :verify_on_exit!

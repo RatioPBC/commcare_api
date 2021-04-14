@@ -1,8 +1,7 @@
 defmodule CommcareAPI.FakeCommcareTest do
   use ExUnit.Case, async: true
 
-  alias CommcareAPI.FakeCommcare
-  alias CommcareAPI.Factory
+  alias CommcareAPI.{Factory, FakeCommcare}
 
   test "xml_to_contact() gets the pieces out from the XML post" do
     username = "username"
