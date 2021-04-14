@@ -1,6 +1,6 @@
 # CommcareApi
 
-Provides an elixir interface to the Commcare API.
+Provides an Elixir interface to the Commcare API.
 
 ## Installation
 
