@@ -4,6 +4,6 @@ defmodule CommcareAPI.PatientCaseProvider do
   """
 
   @type success :: {:ok, CommcareAPI.PatientCase.t()}
-  @type error :: {:error, String.t() | :atom}
+  @type error :: {:error, String.t() | atom()}
   @callback get_patient_case(any(), any()) :: success() | error()
 end
