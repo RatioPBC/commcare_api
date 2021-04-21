@@ -45,6 +45,7 @@ jobs:
           key: os-${{ runner.os }}-otp-${{ matrix.otp }}-elixir-${{ matrix.elixir }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
       - run: mix compile --warnings-as-errors
         if: matrix.warnings_as_errors
+      - run: mix credo --strict
       - run: mix test
       - run: mix dialyzer --halt-exit-status
         if: matrix.static_analysis
