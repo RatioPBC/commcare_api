@@ -1,6 +1,7 @@
 defmodule CommcareAPI.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/RatioPBC/commcare_api"
   @version "0.1.26"
 
   def project do
@@ -9,6 +10,7 @@ defmodule CommcareAPI.MixProject do
       app: :commcare_api,
       deps: deps(),
       dialyzer: dialyzer(),
+      docs: docs(),
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       licenses: ["Apache-2.0"],
@@ -61,6 +63,24 @@ defmodule CommcareAPI.MixProject do
     [
       ignore_warnings: "dialyzer.ignore",
       plt_add_apps: []
+    ]
+  end
+
+  defp docs do
+    [
+      extras: extras(),
+      formatters: ["html"],
+      main: "readme",
+      name: "CommCare API",
+      source_ref: "v#{@version}",
+      source_url: @source_url
+    ]
+  end
+
+  defp extras do
+    [
+      "README.md",
+      "LICENSE"
     ]
   end
 end
