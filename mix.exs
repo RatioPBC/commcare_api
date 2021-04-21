@@ -3,15 +3,15 @@ defmodule CommcareAPI.MixProject do
 
   def project do
     [
+      aliases: aliases(),
       app: :commcare_api,
       deps: deps(),
       dialyzer: dialyzer(),
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       licenses: ["Apache-2.0"],
-      package: [
-        files: ["lib", "mix.exs", "README.md", "version"]
-      ],
+      package: [files: ["lib", "mix.exs", "README.md", "version"]],
+      preferred_cli_env: ["test.ci": :test],
       start_permanent: Mix.env() == :prod,
       version: version()
     ]
@@ -19,6 +19,18 @@ defmodule CommcareAPI.MixProject do
 
   defp elixirc_paths(:test), do: ~w(lib test/support)
   defp elixirc_paths(_), do: ~w(lib)
+
+  defp aliases do
+    [
+      "test.ci": [
+        "format --check-formatted",
+        "deps.unlock --check-unused",
+        "credo --strict",
+        "test --raise",
+        "dialyzer"
+      ]
+    ]
+  end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
