@@ -14,7 +14,7 @@ defmodule CommcareAPI.MixProject do
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       licenses: ["Apache-2.0"],
-      package: [files: ["lib", "mix.exs", "README.md", "version"]],
+      package: package(),
       preferred_cli_env: ["test.ci": :test],
       start_permanent: Mix.env() == :prod,
       version: @version
@@ -81,6 +81,17 @@ defmodule CommcareAPI.MixProject do
     [
       "README.md",
       "LICENSE"
+    ]
+  end
+
+  defp package do
+    [
+      licenses: ["Apache-2.0"],
+      links: %{
+        GitHub: @source_url,
+        Sponsor: "https://ratiopbc.com"
+      },
+      maintainers: ["Jesse Cooke"]
     ]
   end
 end
