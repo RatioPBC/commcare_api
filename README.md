@@ -10,7 +10,7 @@ by adding `commcare_api` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:commcare_api, "~> 0.1.0"}
+    {:commcare_api, "~> 0.2"}
   ]
 end
 ```
