@@ -1,6 +1,8 @@
 defmodule CommcareAPI.MixProject do
   use Mix.Project
 
+  @version "0.1.26"
+
   def project do
     [
       aliases: aliases(),
@@ -13,7 +15,7 @@ defmodule CommcareAPI.MixProject do
       package: [files: ["lib", "mix.exs", "README.md", "version"]],
       preferred_cli_env: ["test.ci": :test],
       start_permanent: Mix.env() == :prod,
-      version: version()
+      version: @version
     ]
   end
 
@@ -60,12 +62,5 @@ defmodule CommcareAPI.MixProject do
       ignore_warnings: "dialyzer.ignore",
       plt_add_apps: []
     ]
-  end
-
-  defp version do
-    case File.read("version") do
-      {:error, _} -> "0.0.0"
-      {:ok, version_number} -> String.trim(version_number)
-    end
   end
 end
