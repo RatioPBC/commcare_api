@@ -5,6 +5,7 @@ defmodule CommcareAPI.MixProject do
     [
       app: :commcare_api,
       deps: deps(),
+      dialyzer: dialyzer(),
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       licenses: ["Apache-2.0"],
@@ -34,11 +35,18 @@ defmodule CommcareAPI.MixProject do
       {:floki, ">= 0.30.0"},
       {:httpoison, "~> 1.6"},
       {:timex, "~> 3.7"},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:hammox, "~> 0.5", only: [:test]},
       {:mix_audit, "~> 0.1", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.24.0", only: :dev, runtime: false}
+    ]
+  end
+
+  defp dialyzer() do
+    [
+      ignore_warnings: "dialyzer.ignore",
+      plt_add_apps: []
     ]
   end
 
