@@ -9,6 +9,7 @@ defmodule CommcareAPI.MixProject do
       aliases: aliases(),
       app: :commcare_api,
       deps: deps(),
+      description: description(),
       dialyzer: dialyzer(),
       docs: docs(),
       elixir: "~> 1.10",
@@ -40,6 +41,10 @@ defmodule CommcareAPI.MixProject do
     [
       extra_applications: [:logger]
     ]
+  end
+
+  def description do
+    "A small client for the CommCare API."
   end
 
   # Run "mix help deps" to learn about dependencies.
