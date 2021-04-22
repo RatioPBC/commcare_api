@@ -19,6 +19,8 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/commcare_api](https://hexdocs.pm/commcare_api).
 
+See [CHANGELOG](CHANGELOG.md) for a list of notable changes.
+
 ## Copyright and License
 
 Copyright 2021, Ratio PBC, Inc.
