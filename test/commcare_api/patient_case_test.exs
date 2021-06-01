@@ -41,6 +41,18 @@ defmodule CommcareAPI.PatientCaseTest do
       assert patient_case.zip_code == "90210"
       assert patient_case.case_type == "patient"
     end
+
+    test "it return interviewee parent name info" do
+      patient_case_json = File.read!("test/fixtures/commcare/contact-with-interviewee-parent-name.json") |> Jason.decode!()
+      {:ok, patient_case} = PatientCase.new(patient_case_json)
+
+      assert patient_case.case_id == "00000000-eb0f-454c-ae1b-6da8ef431cfc"
+      assert patient_case.domain == "ratio_pbc"
+      assert patient_case.first_name == "Test"
+      assert patient_case.last_name == "ParentGuardianTest"
+      assert patient_case.case_type == "contact"
+      assert patient_case.interviewee_parent_name == "Test ParentGuardianTest"
+    end
   end
 
   describe "new/1, for bad lab_results," do
