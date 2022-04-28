@@ -32,6 +32,16 @@ defmodule CommcareAPI.CommcareClient do
     |> parse_response()
   end
 
+  @spec ping(config :: Config.t()) :: :ok | {:error, error_reason}
+  def ping(config) do
+    config.http_client.get("https://www.commcarehq.org/accounts/login/")
+    |> case do
+      {:ok, %HTTPoison.Response{status_code: 200}} -> :ok
+      {:ok, %HTTPoison.Response{} = response} -> {:error, response}
+      error -> error
+    end
+  end
+
   @spec post_contact(commcare_data :: map(), contact :: map(), config :: Config.t()) :: {:ok, term()} | {:error, term()}
   def post_contact(commcare_data, contact, config) do
     url = "https://www.commcarehq.org/a/#{commcare_data.domain}/receiver/"

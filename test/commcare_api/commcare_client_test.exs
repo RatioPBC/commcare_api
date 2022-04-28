@@ -123,6 +123,32 @@ defmodule CommcareAPI.CommcareClientTest do
     end
   end
 
+  describe "ping" do
+    test "success returns :ok", %{commcare_api_config: commcare_api_config} do
+      expect(HTTPoisonMock, :get, fn "https://www.commcarehq.org/accounts/login/" ->
+        {:ok, %HTTPoison.Response{status_code: 200, body: ""}}
+      end)
+
+      assert :ok = CommcareClient.ping(commcare_api_config)
+    end
+
+    test "returns error on non-200", %{commcare_api_config: commcare_api_config} do
+      expect(HTTPoisonMock, :get, fn "https://www.commcarehq.org/accounts/login/" ->
+        {:ok, %HTTPoison.Response{status_code: 404, body: ""}}
+      end)
+
+      assert {:error, %HTTPoison.Response{status_code: 404, body: ""}} = CommcareClient.ping(commcare_api_config)
+    end
+
+    test "returns error response", %{commcare_api_config: commcare_api_config} do
+      expect(HTTPoisonMock, :get, fn "https://www.commcarehq.org/accounts/login/" ->
+        {:error, :error_message}
+      end)
+
+      assert {:error, :error_message} = CommcareClient.ping(commcare_api_config)
+    end
+  end
+
   describe "post_contact" do
     setup do
       commcare_data = %PatientCase{
