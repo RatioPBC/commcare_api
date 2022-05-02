@@ -4,10 +4,11 @@ defmodule CommcareAPI.CommcareClient do
   """
   @behaviour CommcareAPI.CommcareClientBehaviour
 
-  @type error_reason :: :commcare_authorization_error | :commcare_data_error | :commcare_forbidden | :not_found
+  @type error_reason ::
+          :commcare_authorization_error | :commcare_data_error | :commcare_forbidden | :not_found
 
   alias CommcareAPI.Config
-  alias Euclid.Extra.Random
+  alias Euclid.Random
 
   @impl CommcareAPI.CommcareClientBehaviour
   @spec get_case(
@@ -42,7 +43,8 @@ defmodule CommcareAPI.CommcareClient do
     end
   end
 
-  @spec post_contact(commcare_data :: map(), contact :: map(), config :: Config.t()) :: {:ok, term()} | {:error, term()}
+  @spec post_contact(commcare_data :: map(), contact :: map(), config :: Config.t()) ::
+          {:ok, term()} | {:error, term()}
   def post_contact(commcare_data, contact, config) do
     url = "https://www.commcarehq.org/a/#{commcare_data.domain}/receiver/"
     username = config.username
