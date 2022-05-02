@@ -56,7 +56,7 @@ defmodule CommcareAPI.MixProject do
       {:httpoison, "~> 1.6"},
       {:timex, "~> 3.7"},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
-      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:hammox, "~> 0.5", only: [:test]},
       {:mix_audit, "~> 0.1", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.24.0", only: :dev, runtime: false}
