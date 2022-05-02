@@ -1,5 +1,8 @@
 defmodule CommcareAPI.Config do
-  @moduledoc false
+  @moduledoc """
+    Module that defines a struct which contains HTTP configuration
+    for the CommCare API.
+  """
 
   @type t :: %__MODULE__{
           client: module(),
