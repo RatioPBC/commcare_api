@@ -84,7 +84,8 @@ defmodule CommcareAPI.MixProject do
   defp extras do
     [
       "README.md",
-      "LICENSE"
+      "LICENSE",
+      "CHANGELOG.md"
     ]
   end
 
